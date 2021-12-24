@@ -65,3 +65,18 @@ DI：依赖注入，就是注入属性。是IOC的一种具体实现方式。
     </property>
 ```
 
+##### 4.注入外部bean
+
+外部bean就是其他类的对象
+
+```Java
+1.创建需要注入的类的对象
+    <bean ....></bean>
+2.在需要注入的类里面设置属性和set()方法
+3.在配置文件里面配置
+    注入外部bean需要 ref属性。ref属性的值是注入对象的bean标签的id值。
+    <bean id="userService" class="com.learnjava.service.UserService">
+        <property name="userDao" ref="userDaoImpl"/>
+    </bean>
+```
+
