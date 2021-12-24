@@ -51,3 +51,17 @@ DI：依赖注入，就是注入属性。是IOC的一种具体实现方式。
     </bean>
 ```
 
+##### 3.注入空值和特殊符号
+
+```Java
+1.对于一个属性要注入空值，需要用到<null>标签
+    <property name="address">
+           <null></null>
+    </property>
+2.注入特殊符号，要用到CDATA结构（<![CDATA[需要的值]]），idea中CD快捷键一键生成。
+    <property name="address">
+           <value><![CDATA[<<beijing>>]]>
+           </value>
+    </property>
+```
+
