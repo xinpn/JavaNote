@@ -1,6 +1,6 @@
 # Git+Typora将笔记同步到Github中
 
-### 1.准备软件GIt
+### 1.准备软件Git
 
 ### 2.新建一个Github仓库，用来保存笔记
 
@@ -33,3 +33,4 @@
 3. **git commit -m** "描述"。
 4. **git remote add origin 你的仓库链接**，此命令将本地仓库与你的远程仓库进行连接。
 5. **git push -u origin master**，将本地文件push到远程仓库，此时在Github上就可以看到上传的文件。
+5. 如果报错failed to push som refs to…….，说明远程仓库原来是非空的，需要先把远程仓库的文件pull到本地，然后再将本地的文件push到远程仓库。先执行**git pull --rebase origin master**，在执行**git push -u origin master**。
