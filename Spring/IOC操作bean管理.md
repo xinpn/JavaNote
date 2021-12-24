@@ -97,3 +97,86 @@ DI：依赖注入，就是注入属性。是IOC的一种具体实现方式。
     </bean>
 ```
 
+##### 6.注入集合类型数据
+
+要注入的数据有数组类型、列表、map、set。
+
+```Java
+1.类中要有这些类型的数据，并且有对应的set()方法。
+2.修改配置文件，每个类型添加数据时都有对应的标签。
+    数组对应array标签；列表对应list标签；map对应map标签，在输入数据时，要用<entry key="cc" value="CC"/>来输入键值对；set对应set标签。
+    <property name="courses">
+            <array>
+                <value>Java编程基础</value>
+                <value>数据库技术</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>AA</value>
+                <value>BB</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="cc" value="CC"/>
+                <entry key="dd" value="DD"/>
+            </map>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>EE</value>
+                <value>FF</value>
+            </set>
+        </property>
+```
+
+##### 7.注入集合类型数据中需要注意的两个点
+
+- 集合类型数据中保存的是类的对象
+
+```Java
+1.创建数据和对应的set()方法
+private List<Course> courseList;
+2.修改配置文件
+    2.1创建对应类的对象，这里是要创建Course的对象。
+    <bean id="course1" class="com.learnjava.demo.Course">
+        <property name="courseName" value="spring 教程"/>
+    </bean>
+    2.2通过list和ref标签注入数据
+     <property name="courseList">
+            <list>
+                <ref bean="course1"/>
+                <ref bean="course2"/>
+            </list>
+     </property>
+```
+
+- 如果一个集合中的数据被频繁使用，可以把它抽离出来使用
+
+1. 配置文件中新建一个util属性空间。
+
+![image-20211224171124084](https://s2.loli.net/2021/12/24/Q8d2aj4pTqOFzkx.png)    
+
+   2.配置文件中增加数据
+
+```xml
+<util:list id="booklist">
+        <value>算法</value>
+        <value>生物信息学</value>
+        <value>深入理解jvm</value>
+        <value>算法2</value>
+</util:list>
+```
+
+   3.通过ref标签使用数据，ref中的值是数据的id值。
+
+```xml
+<bean id="book" class="com.learnjava.demo.Book">
+        <property name="bName" ref="booklist"/>
+</bean>
+```
+
