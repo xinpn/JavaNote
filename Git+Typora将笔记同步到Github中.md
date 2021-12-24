@@ -14,7 +14,7 @@
 
 2. 使用**git config --global --list**查看是否配置成功
 
-![image-20211223220032904](C:\Users\19778\AppData\Roaming\Typora\typora-user-images\image-20211223220032904.png)
+![image-20211223220032904](https://s2.loli.net/2021/12/24/mFZBngD4IuLAvVi.png)
 
 ### 4.生成密钥与Github进行连接
 
@@ -22,9 +22,9 @@
 2. 如果运行成功，在 **C:\Users\Administrator\.ssh**目录下会生成三个文件，其中**id_rsa.pub**中存放的就是密钥。
 3. 在Github中点击头像-->Settings-->SSH and GPG keys-->New SSH key。将名称和密钥填入。
 
-![image-20211223220826598](C:\Users\19778\AppData\Roaming\Typora\typora-user-images\image-20211223220826598.png)
+![image-20211223220826598](https://s2.loli.net/2021/12/24/IWlK84YksZvEbNG.png)
 
-![image-20211223220942574](C:\Users\19778\AppData\Roaming\Typora\typora-user-images\image-20211223220942574.png)
+![image-20211223220942574](https://s2.loli.net/2021/12/24/3CVmB6WcKnfZ2tz.png)
 
 ### 5.将本地文件上传到Github仓库
 
